@@ -1,13 +1,14 @@
 {
   "name": "m3-tailwind-colors",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Generate Material 3 colors for Tailwind and NativeWind.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "publish": "npm publish"
   },
   "files": [
     "dist"

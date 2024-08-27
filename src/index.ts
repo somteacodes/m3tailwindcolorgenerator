@@ -201,7 +201,7 @@ import {
     return colors;
   };
   
-  const M3TailwindColors = (
+  const M3TailwindRNColors = (
     colorsMap: ColorsMap,
     themeConfig: ThemeConfig,
     useKebabCase: boolean = true
@@ -212,5 +212,5 @@ import {
     };
   };
    
-  export { M3TailwindColors, M3TailwindConfigColors };
+  export { M3TailwindRNColors, M3TailwindConfigColors };
   

@@ -204,7 +204,7 @@ import {
   const M3TailwindRNColors = (
     colorsMap: ColorsMap,
     themeConfig: ThemeConfig,
-    useKebabCase: boolean = true
+    useKebabCase: boolean = false
   ): { light: Record<string, string>; dark: Record<string, string> } => {
     return {
       light: generateColors(colorsMap, themeConfig, false, useKebabCase),

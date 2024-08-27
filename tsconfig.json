@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "target": "ES2017",
+      "module": "esnext",
+      "declaration": true,
+      "declarationDir": "dist",
+      "outDir": "dist",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "moduleResolution": "node",
+      "jsx": "react",
+      "sourceMap": true
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
+  }
+  

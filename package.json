@@ -1,0 +1,40 @@
+{
+  "name": "m3-tailwind-colors",
+  "version": "0.1.0",
+  "description": "Generate Material 3 colors for Tailwind and NativeWind.",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "prepare": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@material/material-color-utilities": "^0.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "rollup": "^4.21.1",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4"
+  },
+  "keywords": [
+    "tailwind",
+    "material-design",
+    "material-3",
+    "colors",
+    "nativewind",
+    "react-native"
+  ],
+  "author": "Somtochukwu Anunobi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/m3-tailwind-colors"
+  }
+}

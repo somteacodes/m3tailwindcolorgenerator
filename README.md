@@ -8,6 +8,8 @@
 - Easily integrate with Tailwind CSS or NativeWind projects.
 - Supports both light and dark color schemes.
 
+Read more about how it works [text](https://m3.material.io/styles/color/system/how-the-system-works)
+
 ## Installation
 
 First, install the package via npm:
@@ -22,21 +24,22 @@ This will automatically install the necessary dependencies, including @material/
 
 To use the generated colors in your Tailwind CSS configuration, follow these steps:
 
-    Import and Generate Colors: Use the M3TailwindColors function to generate your Material 3 color palette based on a primary color.
+- **Import and Generate Colors:** Use the `M3TailwindColor` function to generate your Material 3 color palette based on a primary color.
 
-    Extend Tailwind's Colors: Add the generated colors to the extend.colors section of your Tailwind configuration.
+- **Extend Tailwind's Colors:** Add the generated colors to the extend.colors section of your Tailwind configuration.
 
 Example Tailwind Configuration
 
 Here's an example of how to set up your tailwind.config.js file:
+
 ```javascript
-/** @type {import('tailwindcss').Config} */ 
+/** @type {import('tailwindcss').Config} */
 
-const { M3TailwindColors } = require('m3-tailwind-colors');
+const { M3TailwindConfigColors } = require("m3-tailwind-colors");
 
-const generatedColors = M3TailwindColors({
+const generatedColors = M3TailwindConfigColors({
   primary: "#CE7E00", // Replace with your primary color
-  otherCustomColor:"#65ff34" //optional
+  otherCustomColor: "#65ff34", //optional
 });
 
 module.exports = {
@@ -47,19 +50,75 @@ module.exports = {
       colors: {
         ...generatedColors,
       },
-       
     },
   },
   plugins: [],
 };
 ```
 
-## Parameters
+### Usage with React Native Styling
 
-The M3TailwindColors function accepts an object with the following parameters:
+The package exports a function that can be used to generate colors for react native
 
-    primary: The base color in hexadecimal format. This will be used to generate the Material 3 color scheme.
+- Example usage
+
+```typescript
+/**
+ * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
+ * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/),
+ * [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
+ */
+
+import { M3TailwindRNColors } from "m3-tailwind-colors";
+
+const M3colors = M3TailwindRNColors(
+  { primary: "#CE7E00" },
+  {
+    scheme: "content", // Replace with your desired scheme
+    contrast: 0, // Adjust the contrast as needed
+  }
+);
+
+export const Colors = M3colors;
+```
+
+Then it can be used as style values in your react native files like so
+
+```typescript
+      <View
+        style={{
+          backgroundColor:
+            colorScheme === "dark" ? Colors.dark.surface : Colors.light.surface,
+        }}
+      >
+      {children}
+      <View>
+```
 
 ## Generated Colors
 
 The generated color palette will include various shades and tones derived from the primary color, ready to be used in both light and dark modes.
+
+## Parameters
+
+The M3TailwindConfigColors and M3TailwindRNColors functions accepts an object with the following parameters:
+
+```typescript
+const M3colors = M3TailwindRNColors(
+
+ {
+   primary: '#ff0000', //The base color in hexadecimal format. This will be used to generate the Material 3 color scheme.
+   // secondary and/or tertiary are optional, if not given, they will be generated automatically
+   secondary: '#ffff00',
+   tertiary: '#0000ff',
+   // add any other colors you need, it can be named anything
+   customname: '#00ff00',
+   },
+   {
+   scheme: 'content',   //optional. options are 'content', 'expressive', 'fidelity', 'monochrome', 'neutral', 'tonalSpot' or 'vibrant'
+   contrast: 0, // contrast is optional, any number between -1 (less contrast) to 1 (more contrast).
+ }
+ true // class names with kebab case, this is optional, the default is false. This will output the class name as 'on-surface' instead of 'onSurface'
+)
+ ```
+
